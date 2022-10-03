@@ -384,6 +384,7 @@ h6 {
   min-height: 300px;
   width: 250px;
   box-shadow: 10px 12px 5px rgba(1, 0, 0, 0.1);
+  transition: all 0.4s;
 }
 
 #prode .cardsPredicciones>img {
@@ -403,13 +404,13 @@ h6 {
   box-shadow: 10px 12px 25px rgba(1, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
-  z-index: 1;
+  /* z-index: 1; */
   border: 2px solid;
   border: black;
 }
 
 #prode .icon-box strong {
-  font-size: 1.4em;
+  font-size: 120%;
   padding: 2px;
   color: white;
   margin-top: 5%;
@@ -424,7 +425,7 @@ h6 {
 }
 
 #prode .icon-box:hover {
-  transform: scale(1.08);
+  transform: scale(1.04);
   border-color: red;
 }
 
@@ -435,7 +436,7 @@ h6 {
 }
 
 #prode .icon-box:hover strong {
-  color: rgb(46, 138, 237);
+  color: rgb(249, 229, 9);
 }
 
 #prode #titulo {
@@ -532,7 +533,6 @@ table {
   border: 2px solid #ccc;
   border-collapse: collapse;
   margin-bottom: 2%;
-  padding: 0;
   width: 100%;
   table-layout: fixed;
   box-shadow: 26px 28px 15px -8px rgba(0,0,0,0.15);

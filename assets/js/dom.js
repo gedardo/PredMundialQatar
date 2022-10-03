@@ -23,7 +23,6 @@ const resEquipo1 = document.querySelector("#resEquipo1")
 const resEquipo2 = document.querySelector("#resEquipo2")
 const divCards = document.querySelector("#divCardsPred")
 const divPred = document.querySelector("#divPredicciones")
-const arrayPredicciones = []
 const partidos = []
 const usuarios = []
 let usuarioLogeado = ""

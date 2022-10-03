@@ -1,14 +1,27 @@
+let array = []
 const validarArrayPred = () => {
     if (JSON.parse(localStorage.getItem("prediccion"))) {
-        return true
+        array = JSON.parse(localStorage.getItem("prediccion"));
+        return array;
     } else {
         return false
     }
 }
 
+function compare_id( a, b )
+  {
+  if ( a.idPartido < b.idPartido){
+    return -1;
+  }
+  if ( a.idPartido > b.idPartido){
+    return 1;
+  }
+  return 0;
+}
+
 function cargarPredicciones() {
     if (validarArrayPred()) {
-        let arrayCargarPredicciones = JSON.parse(localStorage.getItem("prediccion"))
+        array.sort(compare_id)
         estado.innerText += `\nPredicciones realizadas`
         tabla.innerHTML = ""
         let columna = `<thead>
@@ -21,7 +34,7 @@ function cargarPredicciones() {
                     </thead>`
         tabla.innerHTML += columna
         let fila = ""
-        arrayCargarPredicciones.forEach(Prediccion => {
+        array.forEach(Prediccion => {
             let i = partidos.find(i => Prediccion.idPartido == i.idPartido)
             fila = `<tr>
                      <td>${Prediccion.idPartido}</td>
@@ -49,7 +62,7 @@ function generarCards() {
             <div class="row d-flex icon-boxes" id="partidosG${t.idGrupo}">
                 <div class="col-xs-12 col-sm-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
                     <div class="">
-                       <img src="assets/img/${t.idGrupo}.jpg" height="300em"  width="250em"></a>
+                       <img src="assets/img/${t.idGrupo}.jpg" height="300px" width="250px"></a>
                     </div>
                 </div>
             </div>
@@ -84,16 +97,7 @@ function eventoInputs() {
     });
 }
 
-// const guardaModPred = () => {
-//     // arrayPredicciones = []
-//     let inputsRes = document.querySelectorAll(".inputRes")
-//     inputsRes.forEach(element => {
-//         generarPredUsuario(element.id.substring(10))
-//     });
-// }
-
 function generarPredUsuario(div) {
-    debugger
     let t = partidos.find(i => div == i.idPartido)
     let inputResE1 = document.getElementById(`resEquipo1${t.idPartido}`)
     let inputResE2 = document.getElementById(`resEquipo2${t.idPartido}`)
@@ -113,27 +117,20 @@ function generarPredUsuario(div) {
             resEquipo2: resE2,
             resultado: res,
         }
-
-        if (validarArrayPred()) {
-            arrayPredicciones.forEach(element => {
-                if (element.idPartido === pred.idPartido) {
-                    let index = arrayPredicciones.indexOf(element)
-                    arrayPredicciones.splice(index, 1, pred)
-                    localStorage.setItem("prediccion", JSON.stringify(arrayPredicciones))
-                    textResult.innerText = (res)
-                } else {
-                    arrayPredicciones.push(pred)
-                    localStorage.setItem("prediccion", JSON.stringify(arrayPredicciones))
-                    textResult.innerText = (res)
-                }
-            });
+debugger
+        if (validarArrayPred() && array) {
+            let partidoEnArray = array.findIndex((p) => p.idPartido === pred.idPartido)
+            if (partidoEnArray >= 0) {
+                array.splice(partidoEnArray, 1, pred)
+            } else {
+                array.push(pred)
+            }
         } else {
-            arrayPredicciones.push(pred)
-            localStorage.setItem("prediccion", JSON.stringify(arrayPredicciones))
-            textResult.innerText = (res)
+            array.push(pred)
         }
+        localStorage.setItem("prediccion", JSON.stringify(array))
+        textResult.innerText = (res)
     }
-    console.table(arrayPredicciones)
 }
 
 const filtrarOficina = (inmuebleId) => {
@@ -175,6 +172,6 @@ function modificarPred() {
     cargarInputs()
 }
 
-botonGuardar.addEventListener("click", () => generarPredUsuario())
+botonGuardar.addEventListener("click", () => cargarPredicciones())
 botonBorrar.addEventListener("click", () => modificarPred())
 document.addEventListener('DOMContentLoaded', generarCards())
