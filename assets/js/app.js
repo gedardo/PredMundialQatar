@@ -62,14 +62,14 @@ function generarCards() {
             <div class="row d-flex icon-boxes" id="partidosG${t.idGrupo}">
                 <div class="col-xs-12 col-sm-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
                     <div class="">
-                       <img src="assets/img/${t.idGrupo}.jpg" height="300px" width="250px"></a>
+                       <img src="assets/img/${t.idGrupo}.jpg" height="50px" width="50px"></a>
                     </div>
                 </div>
             </div>
           </div>`
         }
         let divPartidos = document.querySelector(`#partidosG${t.idGrupo}`)
-        divPartidos.innerHTML += `<div class="col-xs-12 col-sm-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        divPartidos.innerHTML += `<div class="col-6 col-sm-4 col-lg-3 d-flex align-items-stretch mb-lg-0">
         <div class="icon-box">
             <div class="cardsPredicciones" id=${t.idPartido}>
               <strong>${t.equipo1} Vs ${t.equipo2}</strong>
@@ -87,7 +87,7 @@ function generarCards() {
         </div>
       </div>`
     })
-    eventoInputs()
+    eventoInputs()//col-xs-4
 }
 
 function eventoInputs() {

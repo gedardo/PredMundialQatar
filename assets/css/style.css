@@ -362,7 +362,7 @@ h6 {
 # prode Section
 --------------------------------------------------------------*/
 #prode .icon-boxes {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 #prode img {
@@ -372,7 +372,7 @@ h6 {
 #prode .cardsPredicciones>h4 {
   margin-top: 10%;
   color: yellow;
-  font-size: 20px;
+  font-size: 100%;
 }
 
 #prode .cardsPredicciones {
@@ -380,16 +380,16 @@ h6 {
   flex-direction: column;
   justify-items: baseline;
   align-items: center;
-  text-align: center;
-  min-height: 300px;
-  width: 250px;
+  text-align: right;
+  height: 270px;
+  width: 200px;
   box-shadow: 10px 12px 5px rgba(1, 0, 0, 0.1);
   transition: all 0.4s;
 }
 
 #prode .cardsPredicciones>img {
   text-align: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .bienvenida {
@@ -398,19 +398,19 @@ h6 {
 }
 
 #prode .icon-box {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   position: relative;
   background: #800a2c;
   box-shadow: 10px 12px 25px rgba(1, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
-  /* z-index: 1; */
+  z-index: 1;
   border: 2px solid;
   border: black;
 }
 
 #prode .icon-box strong {
-  font-size: 120%;
+  font-size: 100%;
   padding: 2px;
   color: white;
   margin-top: 5%;
@@ -421,7 +421,11 @@ h6 {
   color: white;
   transition: 0.3s;
   margin-right: 5%;
-  font-size: large;
+  font-size: 100%;
+}
+
+#prode .icon-box input{
+  margin-right: 25px;
 }
 
 #prode .icon-box:hover {
@@ -536,6 +540,7 @@ table {
   width: 100%;
   table-layout: fixed;
   box-shadow: 26px 28px 15px -8px rgba(0,0,0,0.15);
+  font-size: 120%;
 }
 
 table caption {
@@ -564,6 +569,7 @@ table th {
 @media screen and (max-width: 600px) {
   table {
     border: 0;
+    text-align: center;
   }
 
   table caption {
