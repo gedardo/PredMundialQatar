@@ -26,7 +26,7 @@ function cargarPredicciones() {
         tabla.innerHTML = ""
         let columna = `<thead>
                         <tr>
-                            <th>ID</th>
+                            <th>GRUPO</th>
                             <th>PARTIDO A DISPUTAR</th>
                             <th>PREDICCION ELEGIDA</th>
                             <th>RESULTADO</th>
@@ -37,12 +37,12 @@ function cargarPredicciones() {
         array.forEach(Prediccion => {
             let i = partidos.find(i => Prediccion.idPartido == i.idPartido)
             fila = `<tr>
-                     <td>${Prediccion.idPartido}</td>
+                     <th>${i.idGrupo}</th>
                     <td>${i.equipo1} vs ${i.equipo2}</td>
                     <td>${Prediccion.resEquipo1} a ${Prediccion.resEquipo2}</td>
                     <td>${Prediccion.resultado}</td>
                 </tr>`
-            tabla.innerHTML += fila
+            tabla.innerHTML += fila//  <td>${Prediccion.idPartido}</td>
         })
         document.getElementById("borrarPred").style.display = 'inline';
         document.getElementById("guardarPred").style.display = 'none';
@@ -60,16 +60,16 @@ function generarCards() {
         if (divGrupo === null) {
             divCards.innerHTML += `<div class="tab-pane" id=${t.idGrupo}>
             <div class="row d-flex icon-boxes" id="partidosG${t.idGrupo}">
-                <div class="col-xs-12 col-sm-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                <div class="col-6 col-md-4 col-lg-3 d-flex align-items-stretchmb-lg-0">
                     <div class="">
-                       <img src="assets/img/${t.idGrupo}.jpg" height="50px" width="50px"></a>
+                       <img src="assets/img/${t.idGrupo}.jpg" height="260px" width="190px"></a>
                     </div>
                 </div>
             </div>
           </div>`
         }
         let divPartidos = document.querySelector(`#partidosG${t.idGrupo}`)
-        divPartidos.innerHTML += `<div class="col-6 col-sm-4 col-lg-3 d-flex align-items-stretch mb-lg-0">
+        divPartidos.innerHTML += `<div class="col-6 col-md-4 col-lg-3 d-flex align-items-stretch mb-lg-0">
         <div class="icon-box">
             <div class="cardsPredicciones" id=${t.idPartido}>
               <strong>${t.equipo1} Vs ${t.equipo2}</strong>
@@ -105,8 +105,8 @@ function generarPredUsuario(div) {
     let resE1 = parseInt(inputResE1.value)
     let resE2 = parseInt(inputResE2.value)
     let res = ""
-
-    if (resE1 && resE2) {
+debugger
+    if (resE1 != NaN && resE2 != NaN) {
         if (resE1 > resE2) { res = "Ganador " + t.equipo1 }
         if (resE1 < resE2) { res = "Ganador " + t.equipo2 }
         if (resE1 == resE2) { res = "Empate" }
@@ -117,7 +117,6 @@ function generarPredUsuario(div) {
             resEquipo2: resE2,
             resultado: res,
         }
-debugger
         if (validarArrayPred() && array) {
             let partidoEnArray = array.findIndex((p) => p.idPartido === pred.idPartido)
             if (partidoEnArray >= 0) {
