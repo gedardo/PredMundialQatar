@@ -14,32 +14,19 @@ const validarListaUsuarios = () => {
     }
 }
 
-function registrarUsuario() {
-
-    if (inputNombreReg.value && inputPassReg.value && inputPass2Reg.value) {
-        if (inputPassReg.value === inputPass2Reg.value) {
-            if (validarListaUsuarios()) {
-                let listUsuarios = JSON.parse(localStorage.getItem("usuarios"))
-                if (listUsuarios.find((usuario) => usuario.nombre === inputNombreReg.value)) {
-                    alertError("El nombre de usuario ya existe, por favor ingresa otro")
-                    inputNombreReg.focus()
-                    return
-                }
-            }
-            usuarios.push(new Usuario(inputNombreReg.value, inputPassReg.value))
-            localStorage.setItem("usuarios", JSON.stringify(usuarios))
-            alertOk("Registro exitoso")
-            inputNombre.value = inputNombreReg.value
-            inputPass.value = inputPassReg.value
-            loginUsuario()
-            // ocultarDiv(divRegistrar)
-        } else {
-            alertError("La contraseña no coincide")
-            inputPassReg.focus()
+function registrarUsuario(nombre, pass) {
+    if (validarListaUsuarios()) {
+        let listUsuarios = JSON.parse(localStorage.getItem("usuarios"))
+        if (listUsuarios.find((usuario) => usuario.nombre === nombre)) {
+            alertError("El nombre de usuario ya existe, por favor ingresa otro")
+            return
         }
-    } else {
-        alertError("Faltan ingresar valores")
     }
+    usuarios.push(new Usuario(nombre, pass))
+    localStorage.setItem("usuarios", JSON.stringify(usuarios))
+    inputNombre.value = nombre
+    inputPass.value = pass
+    loginUsuario()
 }
 
 function loginUsuario() {
@@ -49,6 +36,7 @@ function loginUsuario() {
             estado.innerText = `Bienvenido ${inputNombre.value}!!!`
             estado.className = "bienvenida"
             usuarioLogeado = listUsuarios.find((o) => (o.nombre === inputNombre.value)).nombre;
+            alertOk("Ingreso exitoso")
             ocultarDiv(divLogin)
             cargarPredicciones()
         } else {

@@ -372,7 +372,7 @@ h6 {
 #prode .cardsPredicciones>h4 {
   margin-top: 10%;
   color: yellow;
-  font-size: 100%;
+  font-size: 110%;
 }
 
 #prode .cardsPredicciones {
@@ -389,7 +389,8 @@ h6 {
 
 #prode .cardsPredicciones>img {
   text-align: center;
-  /* margin-top: 20px; */
+  margin-top: 5px;
+  width: 30%;
 }
 
 .bienvenida {
@@ -410,7 +411,7 @@ h6 {
 }
 
 #prode .icon-box strong {
-  font-size: 100%;
+  font-size: 90%;
   padding: 2px;
   color: white;
   margin-top: 5%;
@@ -421,7 +422,7 @@ h6 {
   color: white;
   transition: 0.3s;
   margin-right: 5%;
-  font-size: 100%;
+  font-size: 120%;
 }
 
 #prode .icon-box input{
@@ -527,6 +528,19 @@ h6 {
   border: 2px solid;
   box-shadow: 26px 28px 15px -8px rgba(0,0,0,0.15);
   border-radius: 0.7rem;
+}
+
+.error {
+  text-align: center;
+  font-weight: 500;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+}
+
+.error img {
+  width: 100px;
 }
 
 /*--------------------------------------------------------------

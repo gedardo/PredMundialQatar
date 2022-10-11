@@ -1,0 +1,290 @@
+[
+    {
+        "idPartido" : 11, 
+        "idGrupo" : "GrupoA",
+        "equipo1" : "Qatar",
+        "equipo2" : "Ecuador"
+    },
+    {
+        "idPartido" : 12, 
+        "idGrupo" : "GrupoA",
+        "equipo1" : "Qatar",
+        "equipo2" : "Senegal"
+    },
+    {
+        "idPartido" : 13, 
+        "idGrupo" : "GrupoA",
+        "equipo1" : "Qatar",
+        "equipo2" : "Holanda"
+    },
+    {
+        "idPartido" : 14, 
+        "idGrupo" : "GrupoA",
+        "equipo1" : "Senegal",
+        "equipo2" : "Holanda"
+    },
+    {
+        "idPartido" : 15, 
+        "idGrupo" : "GrupoA",
+        "equipo1" : "Ecuador",
+        "equipo2" : "Holanda"
+    },
+    {
+        "idPartido" : 16, 
+        "idGrupo" : "GrupoA",
+        "equipo1" : "Ecuador",
+        "equipo2" : "Senegal"
+    },
+    {
+        "idPartido" : 21, 
+        "idGrupo" : "GrupoB",
+        "equipo1" : "Inglaterra",
+        "equipo2" : "Irán"
+    },
+    {
+        "idPartido" : 22, 
+        "idGrupo" : "GrupoB",
+        "equipo1" : "Irán",
+        "equipo2" : "Gales"
+    },
+    {
+        "idPartido" : 23, 
+        "idGrupo" : "GrupoB",
+        "equipo1" : "Inglaterra",
+        "equipo2" : "Gales"
+    },
+    {
+        "idPartido" : 24, 
+        "idGrupo" : "GrupoB",
+        "equipo1" : "EE.UU.",
+        "equipo2" : "Gales"
+    },
+    {
+        "idPartido" : 25, 
+        "idGrupo" : "GrupoB",
+        "equipo1" : "Inglaterra",
+        "equipo2" : "EE.UU."
+    },
+    {
+        "idPartido" : 26, 
+        "idGrupo" : "GrupoB",
+        "equipo1" : "Irán",
+        "equipo2" : "EE.UU."
+    },
+    {
+        "idPartido" : 31, 
+        "idGrupo" : "GrupoC",
+        "equipo1" : "Argentina",
+        "equipo2" : "A. Saudita"
+    },
+    {
+        "idPartido" : 32, 
+        "idGrupo" : "GrupoC",
+        "equipo1" : "A. Saudita",
+        "equipo2" : "Polonia"
+    },
+    {
+        "idPartido" : 33, 
+        "idGrupo" : "GrupoC",
+        "equipo1" : "Argentina",
+        "equipo2" : "Polonia"
+    },
+    {
+        "idPartido" : 34, 
+        "idGrupo" : "GrupoC",
+        "equipo1" : "México",
+        "equipo2" : "Polonia"
+    },
+    {
+        "idPartido" : 35, 
+        "idGrupo" : "GrupoC",
+        "equipo1" : "Argentina",
+        "equipo2" : "México"
+    },
+    {
+        "idPartido" : 36, 
+        "idGrupo" : "GrupoC",
+        "equipo1" : "A. Saudita",
+        "equipo2" : "México"
+    },
+    {
+        "idPartido" : 41, 
+        "idGrupo" : "GrupoD",
+        "equipo1" : "Dinamarca",
+        "equipo2" : "Túnez"
+    },
+    {
+        "idPartido" : 42, 
+        "idGrupo" : "GrupoD",
+        "equipo1" : "Australia",
+        "equipo2" : "Túnez"
+    },
+    {
+        "idPartido" : 43, 
+        "idGrupo" : "GrupoD",
+        "equipo1" : "Australia",
+        "equipo2" : "Dinamarca"
+    },
+    {
+        "idPartido" : 44, 
+        "idGrupo" : "GrupoD",
+        "equipo1" : "Francia",
+        "equipo2" : "Australia"
+    },
+    {
+        "idPartido" : 45, 
+        "idGrupo" : "GrupoD",
+        "equipo1" : "Francia",
+        "equipo2" : "Dinamarca"
+    },
+    {
+        "idPartido" : 46, 
+        "idGrupo" : "GrupoD",
+        "equipo1" : "Francia",
+        "equipo2" : "Túnez"
+    },
+    {
+        "idPartido" : 51, 
+        "idGrupo" : "GrupoE",
+        "equipo1" : "Alemania",
+        "equipo2" : "Japón"
+    },
+    {
+        "idPartido" : 52, 
+        "idGrupo" : "GrupoE",
+        "equipo1" : "Costa Rica",
+        "equipo2" : "Japón"
+    },
+    {
+        "idPartido" : 53, 
+        "idGrupo" : "GrupoE",
+        "equipo1" : "España",
+        "equipo2" : "Japón"
+    },
+    {
+        "idPartido" : 54, 
+        "idGrupo" : "GrupoE",
+        "equipo1" : "España",
+        "equipo2" : "Costa Rica"
+    },
+    {
+        "idPartido" : 55, 
+        "idGrupo" : "GrupoE",
+        "equipo1" : "España",
+        "equipo2" : "Alemania"
+    },
+    {
+        "idPartido" : 56, 
+        "idGrupo" : "GrupoE",
+        "equipo1" : "Costa Rica",
+        "equipo2" : "Alemania"
+    },
+    {
+        "idPartido" : 61, 
+        "idGrupo" : "GrupoF",
+        "equipo1" : "Marruecos",
+        "equipo2" : "Croacia"
+    },
+    {
+        "idPartido" : 62, 
+        "idGrupo" : "GrupoF",
+        "equipo1" : "Bélgica",
+        "equipo2" : "Marruecos"
+    },
+    {
+        "idPartido" : 63, 
+        "idGrupo" : "GrupoF",
+        "equipo1" : "Bélgica",
+        "equipo2" : "Croacia"
+    },
+    {
+        "idPartido" : 64, 
+        "idGrupo" : "GrupoF",
+        "equipo1" : "Bélgica",
+        "equipo2" : "Canadá"
+    },
+    {
+        "idPartido" : 65, 
+        "idGrupo" : "GrupoF",
+        "equipo1" : "Canadá",
+        "equipo2" : "Croacia"
+    },
+    {
+        "idPartido" : 66, 
+        "idGrupo" : "GrupoF",
+        "equipo1" : "Canadá",
+        "equipo2" : "Marruecos"
+    },
+    {
+        "idPartido" : 71, 
+        "idGrupo" : "GrupoG",
+        "equipo1" : "Suiza",
+        "equipo2" : "Camerún"
+    },
+    {
+        "idPartido" : 72, 
+        "idGrupo" : "GrupoG",
+        "equipo1" : "Serbia",
+        "equipo2" : "Camerún"
+    },
+    {
+        "idPartido" : 73, 
+        "idGrupo" : "GrupoG",
+        "equipo1" : "Brasil",
+        "equipo2" : "Camerún"
+    },
+    {
+        "idPartido" : 74, 
+        "idGrupo" : "GrupoG",
+        "equipo1" : "Brasil",
+        "equipo2" : "Serbia"
+    },
+    {
+        "idPartido" : 75, 
+        "idGrupo" : "GrupoG",
+        "equipo1" : "Brasil",
+        "equipo2" : "Suiza"
+    },
+    {
+        "idPartido" : 76, 
+        "idGrupo" : "GrupoG",
+        "equipo1" : "Serbia",
+        "equipo2" : "Suiza"
+    },
+    {
+        "idPartido" : 81, 
+        "idGrupo" : "GrupoH",
+        "equipo1" : "Uruguay",
+        "equipo2" : "Corea dS"
+    },
+    {
+        "idPartido" : 82, 
+        "idGrupo" : "GrupoH",
+        "equipo1" : "Ghana",
+        "equipo2" : "Corea dS"
+    },
+    {
+        "idPartido" : 83, 
+        "idGrupo" : "GrupoH",
+        "equipo1" : "Portugal",
+        "equipo2" : "Corea dS"
+    },
+    {
+        "idPartido" : 84, 
+        "idGrupo" : "GrupoH",
+        "equipo1" : "Portugal",
+        "equipo2" : "Ghana"
+    },
+    {
+        "idPartido" : 85, 
+        "idGrupo" : "GrupoH",
+        "equipo1" : "Portugal",
+        "equipo2" : "Uruguay"
+    },
+    {
+        "idPartido" : 86, 
+        "idGrupo" : "GrupoH",
+        "equipo1" : "Ghana",
+        "equipo2" : "Uruguay"
+    }
+]

@@ -1,4 +1,3 @@
-let array = []
 const validarArrayPred = () => {
     if (JSON.parse(localStorage.getItem("prediccion"))) {
         array = JSON.parse(localStorage.getItem("prediccion"));
@@ -8,53 +7,26 @@ const validarArrayPred = () => {
     }
 }
 
-function compare_id( a, b )
-  {
-  if ( a.idPartido < b.idPartido){
-    return -1;
-  }
-  if ( a.idPartido > b.idPartido){
-    return 1;
-  }
-  return 0;
-}
-
-function cargarPredicciones() {
-    if (validarArrayPred()) {
-        array.sort(compare_id)
-        estado.innerText += `\nPredicciones realizadas`
-        tabla.innerHTML = ""
-        let columna = `<thead>
-                        <tr>
-                            <th>GRUPO</th>
-                            <th>PARTIDO A DISPUTAR</th>
-                            <th>PREDICCION ELEGIDA</th>
-                            <th>RESULTADO</th>
-                        </tr>
-                    </thead>`
-        tabla.innerHTML += columna
-        let fila = ""
-        array.forEach(Prediccion => {
-            let i = partidos.find(i => Prediccion.idPartido == i.idPartido)
-            fila = `<tr>
-                     <th>${i.idGrupo}</th>
-                    <td>${i.equipo1} vs ${i.equipo2}</td>
-                    <td>${Prediccion.resEquipo1} a ${Prediccion.resEquipo2}</td>
-                    <td>${Prediccion.resultado}</td>
-                </tr>`
-            tabla.innerHTML += fila//  <td>${Prediccion.idPartido}</td>
-        })
-        document.getElementById("borrarPred").style.display = 'inline';
-        document.getElementById("guardarPred").style.display = 'none';
-        ocultarDiv(divPred)
-        mostrarDiv(tabla)
-    } else {
-        mostrarDiv(divPred)
-        document.getElementById("guardarPred").style.display = 'inline';
+function compare_id(a, b) {
+    if (a.idPartido < b.idPartido) {
+        return -1;
     }
+    if (a.idPartido > b.idPartido) {
+        return 1;
+    }
+    return 0;
 }
 
-function generarCards() {
+const mostrarError = () => {
+    return `<div class="error">
+                <h2>¡Ups...!</h2>
+                <img src="images/sorry.jpg">
+                <p>No pudimos cargar los partidos.</p>
+                <p>Por favor, intenta nuevamente en unos minutos.</p>
+            </div>`
+}
+
+function generarCards(partidos) {
     partidos.forEach(t => {
         let divGrupo = document.querySelector(`#${t.idGrupo}`)
         if (divGrupo === null) {
@@ -87,7 +59,6 @@ function generarCards() {
         </div>
       </div>`
     })
-    eventoInputs()//col-xs-4
 }
 
 function eventoInputs() {
@@ -95,6 +66,50 @@ function eventoInputs() {
     inputsRes.forEach(element => {
         element.addEventListener("blur", () => generarPredUsuario(element.id.substring(10)))
     });
+}
+
+function cargarPredicciones() {
+    if (validarArrayPred()) {
+        array.sort(compare_id)
+        estado.innerText += `\nPredicciones realizadas`
+        tabla.innerHTML = ""
+        let columna = `<thead>
+                        <tr>
+                            <th>PARTIDO A DISPUTAR</th>
+                            <th>PREDICCION ELEGIDA</th>
+                            <th>RESULTADO</th>
+                        </tr>
+                    </thead>`
+        tabla.innerHTML += columna
+        let fila = ""
+        let bandera = true
+        for (let index = 10; index < 100; index += 10) {
+            bandera = true
+            let mayor = index + 10
+            array.forEach(Prediccion => {
+                let i = partidos.find(i => Prediccion.idPartido == i.idPartido)
+                if (Prediccion.idPartido > index && Prediccion.idPartido < mayor) {
+                    if (bandera) {
+                        tabla.innerHTML += `<thead><tr><th></th><th>${i.idGrupo}</th><th></th></tr></thead>`
+                        bandera = false
+                    }
+                    fila = `<tr>
+                                        <td>${i.equipo1} vs ${i.equipo2}</td>
+                                        <td>${Prediccion.resEquipo1} a ${Prediccion.resEquipo2}</td>
+                                        <td>${Prediccion.resultado}</td>
+                                 </tr>`
+                    tabla.innerHTML += fila
+                }
+            })
+        }
+        document.getElementById("borrarPred").style.display = 'inline';
+        document.getElementById("guardarPred").style.display = 'none';
+        ocultarDiv(divPred)
+        mostrarDiv(tabla)
+    } else {
+        mostrarDiv(divPred)
+        document.getElementById("guardarPred").style.display = 'inline';
+    }
 }
 
 function generarPredUsuario(div) {
@@ -105,7 +120,6 @@ function generarPredUsuario(div) {
     let resE1 = parseInt(inputResE1.value)
     let resE2 = parseInt(inputResE2.value)
     let res = ""
-debugger
     if (resE1 != NaN && resE2 != NaN) {
         if (resE1 > resE2) { res = "Ganador " + t.equipo1 }
         if (resE1 < resE2) { res = "Ganador " + t.equipo2 }
@@ -132,20 +146,11 @@ debugger
     }
 }
 
-const filtrarOficina = (inmuebleId) => {
-    const oficinasFiltradas = oficinas.filter((o) => (o.inmueble == inmuebleId));
-    cargarCombo(oficina, oficinasFiltradas);
-}
-
 function borrarInputs() {
     let inputsRes = document.querySelectorAll(".inputRes")
-    inputsRes.forEach(element => {
-        element.value = ""
-    });
+    inputsRes.forEach(element => element.value = "");
     let textResult = document.querySelectorAll(".textResult")
-    textResult.forEach(element => {
-        element.innerText = ""
-    });
+    textResult.forEach(element => element.innerText = "");
 }
 
 function cargarInputs() {
@@ -171,6 +176,24 @@ function modificarPred() {
     cargarInputs()
 }
 
+const cargarContenido = async () => {
+    try {
+        const response = await fetch(URL)
+        const data = await response.json()
+        partidos = data
+    }
+    catch (error) {
+        loader.innerHTML += mostrarError()
+    }
+    finally {
+        generarCards(partidos)
+        eventoInputs()
+    }
+}
+
 botonGuardar.addEventListener("click", () => cargarPredicciones())
 botonBorrar.addEventListener("click", () => modificarPred())
-document.addEventListener('DOMContentLoaded', generarCards())
+document.addEventListener("DOMContentLoaded", async () => {
+    const espero = await cargarContenido()
+    eventoInputs()
+})
