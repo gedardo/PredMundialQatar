@@ -20,7 +20,7 @@ function compare_id(a, b) {
 const mostrarError = () => {
     return `<div class="error">
                 <h2>¡Ups...!</h2>
-                <img src="images/sorry.jpg">
+                <img src="../assets/img/sorry.jpg">
                 <p>No pudimos cargar los partidos.</p>
                 <p>Por favor, intenta nuevamente en unos minutos.</p>
             </div>`
