@@ -1,4 +1,4 @@
-let partidos = [
+[
     {
         "idPartido" : 11, 
         "idGrupo" : "GrupoA",
