@@ -16,6 +16,7 @@ const divCards = document.querySelector("#divCardsPred")
 const divPred = document.querySelector("#divPredicciones")
 const loader = document.querySelector(".loader")
 const URL = "../assets/bbdd/partidos.json"
+
 let partidos = []
 let array = []
 const usuarios = []
