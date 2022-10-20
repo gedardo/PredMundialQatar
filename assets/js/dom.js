@@ -15,9 +15,9 @@ const resEquipo2 = document.querySelector("#resEquipo2")
 const divCards = document.querySelector("#divCardsPred")
 const divPred = document.querySelector("#divPredicciones")
 const loader = document.querySelector(".loader")
-const URL = "../assets/bbdd/partidos.json"
+const URL = "https://github.com/gedardo/PredMundialQatar/blob/eea334fbe551f07d577bfa05c1dbc6b6fb090f6c/assets/bbdd/partidos.json"
 
-let partidos = []
+const partidos = []
 let array = []
 const usuarios = []
 let usuarioLogeado = ""
