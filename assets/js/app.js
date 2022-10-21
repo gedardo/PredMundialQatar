@@ -34,7 +34,7 @@ function generarCards(partidos) {
             <div class="row d-flex icon-boxes" id="partidosG${t.idGrupo}">
                 <div class="col-6 col-md-4 col-lg-3 d-flex align-items-stretchmb-lg-0">
                     <div class="">
-                       <img src="assets/img/${t.idGrupo}.jpg" height="260px" width="190px"></a>
+                       <img src="assets/img/${t.idGrupo}.jpg" height="250px" width="190px"></a>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@ function generarPredUsuario(div) {
     let resE1 = parseInt(inputResE1.value)
     let resE2 = parseInt(inputResE2.value)
     let res = ""
-    if (resE1 != NaN && resE2 != NaN) {
+    if (resE1 >=0 && resE2 >= 0) {
         if (resE1 > resE2) { res = "Ganador " + t.equipo1 }
         if (resE1 < resE2) { res = "Ganador " + t.equipo2 }
         if (resE1 == resE2) { res = "Empate" }
@@ -194,7 +194,11 @@ const cargarContenido = async () => {
 
 botonGuardar.addEventListener("click", () => cargarPredicciones())
 botonBorrar.addEventListener("click", () => modificarPred())
+enviar.addEventListener("click", () => {
+    alertOk("Gracias por tu consulta")
+    formulario.reset()
+})
 document.addEventListener("DOMContentLoaded", async () => {
-    const espero = await cargarContenido()
+    cargarContenido()
     eventoInputs()
 })

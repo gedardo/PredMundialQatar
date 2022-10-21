@@ -49,12 +49,6 @@ function loginUsuario() {
     }
 }
 
-inputPass.addEventListener("keypress", (e) => { //e = Objeto global EVENT
-    if (e.key === "Enter") {
-        loginUsuario()
-    }
-})
-
 function mostrarDiv(div) {
     div.classList.remove("ocultar")
 }
@@ -65,14 +59,9 @@ function ocultarDiv(div) {
 
 btnLogin.addEventListener("click", loginUsuario)
 btnRegistrar.addEventListener("click", () => { registrar() })
-// btnRegistrarExitoso.addEventListener("click", () => {registrarUsuario()})
-// btnRegistrarCancelar.addEventListener("click", () => { mostrarDiv(divLogin) & ocultarDiv(divRegistrar) })
-// btnVerPass2.addEventListener("mousedown", () => { inputPassReg.type = "text" })
-// btnVerPass2.addEventListener("mouseup", () => { inputPassReg.type = "password" })
-// btnVerPass3.addEventListener("mousedown", () => { inputPass2Reg.type = "text" })
-// btnVerPass3.addEventListener("mouseup", () => { inputPass2Reg.type = "password" })
 btnVerPass.addEventListener("mousedown", () => { inputPass.type = "text" })
 btnVerPass.addEventListener("mouseup", () => { inputPass.type = "password" })
 inputNombre.addEventListener("focus", () => estado.innerText = "")
-inputPass.addEventListener("focus", () => estado.innerText = "")
 inputNombre.addEventListener("keypress", (e) => { (e.key === "Enter") && inputPass.focus() })
+inputPass.addEventListener("focus", () => estado.innerText = "")
+inputPass.addEventListener("keypress", (e) => {if (e.key === "Enter") {loginUsuario()}})

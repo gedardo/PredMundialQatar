@@ -15,7 +15,8 @@ const resEquipo2 = document.querySelector("#resEquipo2")
 const divCards = document.querySelector("#divCardsPred")
 const divPred = document.querySelector("#divPredicciones")
 const loader = document.querySelector("#loader")
-const URL = "https://github.com/gedardo/PredMundialQatar/blob/9cab7cd17dd77372f8453d327b63d66369753a95/assets/bbdd/partidos.json"
+const enviar = document.querySelector("#enviar")
+const formulario = document.querySelector("#formulario")
 
 const partidos = []
 let array = []
