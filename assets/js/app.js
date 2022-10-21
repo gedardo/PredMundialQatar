@@ -178,9 +178,7 @@ function modificarPred() {
 
 const cargarContenido = async () => {
     try {
-        const response = await fetch(URL, {
-	        'mode': 'no cors',
-    	});
+        const response = await fetch("assets/bbdd/partidos.json");
         const data = await response.json()
         partidos.push(...data)
     }
