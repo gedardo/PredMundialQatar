@@ -47,12 +47,12 @@ function generarCards(partidos) {
               <strong>${t.equipo1} Vs ${t.equipo2}</strong>
               <div>
                 <label for="" id="labelEquipo1">${t.equipo1}</label>
-                <input type="number" class ="inputRes" id="resEquipo1${t.idPartido}">
+                <input type="number" min="0" class="inputRes" id="resEquipo1${t.idPartido}">
               </div>
               <img src="assets/img/vs.png" height="40em"></a>
               <div>
                 <label for="" id="labelEquipo2">${t.equipo2}</label>
-                <input type="number" class ="inputRes" id="resEquipo2${t.idPartido}">
+                <input type="number" min="0" class="inputRes" id="resEquipo2${t.idPartido}">
               </div>
               <h4 class="textResult" id="resultado${t.idPartido}"></h4>
             </div>
